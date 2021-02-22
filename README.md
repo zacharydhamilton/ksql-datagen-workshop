@@ -1,5 +1,4 @@
-<!-- ![Confluent](images/confluent.png) -->
-<div align="center">
+<div align="center" padding=25px>
 <img src="images/confluent.png" width=50% height=50%>
 </div>
 
@@ -22,9 +21,7 @@
 12. [Clean Up Resources](#step-12)
 13. [Confluent Resources and Further Testing](#step-13)
 
-<br></br>
 ***
-<br></br>
 
 ## **Prerequisites**
 <br>
@@ -35,11 +32,11 @@
 
 > **Note:** We will create resources during this workshop that will incur costs. When you sign up for a Confluent Cloud account, you will get up to $200 per month deducted from your Confluent Cloud statement for the first three months. This will cover the cost of resources created during the workshop. 
 
-![billing | width=100px | height=100px](images/billing.png)
+<div align="center" padding=25px>
+    <img src="images/billing.png" width=75% height=75%>
+</div>
 
-<br></br>
 ***
-<br></br>
 
 ## **Objective**
 
@@ -55,22 +52,20 @@ We have now established data flow to and from Confluent Cloud with the help of t
 
 By the conclusion of the workshop, you will have learned how to leverage ksqlDB to perform continuous transformations, create materialized views, and serve lookups against these materialized views all with the data you already have in Confluent Cloud.
 
-<br></br>
 ***
-<br></br>
 
 
 ## <a name="step-1"></a>Log into Confluent Cloud
 
 1. Log into [Confluent Cloud](https://confluent.cloud) and enter your email and password.
 
-![login](images/login.png)
+<div align="center" padding=25px>
+    <img src="images/login.png" width=50% height=50%>
+</div>
 
 2. If you are logging in for the first time, you will see a self-guided wizard that walks you through spinning up a cluster. Please minimize this as we will walk through those steps in this workshop. 
 
-<br></br>
 ***
-<br></br>
 
 ## <a name="step-2"></a>Create an Environment and Kafka Cluster
 
@@ -80,7 +75,9 @@ An environment contains Kafka clusters and its deployed components such as Conne
 
 >**Note:** There is a *default* environment ready in your account upon account creation. You can use this *default* environment for the purpose of this workshop if you do not wish to create an additional environment.
 
-![environment](images/environment.png)
+<div align="center" padding=25px>
+    <img src="images/environment.png" width=50% height=50%>
+</div>
 
 2. Now that we have an environment, click **Create Cluster**. 
 
@@ -88,7 +85,9 @@ An environment contains Kafka clusters and its deployed components such as Conne
 
 3. Chose the **Basic** cluster type. 
 
-![cluster-type](images/cluster-type.png)
+<div align="center" padding=25px>
+    <img src="images/cluster-type.png" width=50% height=50%>
+</div>
 
 4. Click **Begin Configuration**. 
 5. Choose your preferred Cloud Provider (AWS, GCP, or Azure), region, and availability zone. 
