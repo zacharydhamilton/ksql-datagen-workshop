@@ -1,4 +1,7 @@
-![Confluent](images/confluent.png)
+<!-- ![Confluent](images/confluent.png) -->
+<div align="center">
+<img src="images/confluent.png" width=50% height=50%>
+</div>
 
 # <div align="center">Enable Real-Time Data Transformations and Stream Processing with ksqlDB</div>
 ## <div align="center">Lab Guide</div>
