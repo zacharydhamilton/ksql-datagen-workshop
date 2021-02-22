@@ -1,5 +1,3 @@
-<link href="images/style.css" rel="stylesheet"></link>
-
 ![Confluent](images/confluent.png)
 
 # <div align="center">Enable Real-Time Data Transformations and Stream Processing with ksqlDB</div>
