@@ -32,7 +32,7 @@
 
 > **Note:** We will create resources during this workshop that will incur costs. When you sign up for a Confluent Cloud account, you will get up to $200 per month deducted from your Confluent Cloud statement for the first three months. This will cover the cost of resources created during the workshop. 
 
-![billing](images/billing.png)
+![billing | width=100px | height=100px](images/billing.png)
 
 <br></br>
 ***
