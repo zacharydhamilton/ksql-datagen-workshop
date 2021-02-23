@@ -123,7 +123,7 @@ An environment contains Kafka clusters and its deployed components such as Conne
 > **Note:** This section shows Cluster Metrics, such as Throughput and Storage. This page also shows the number of Topics, Partitions, Connectors, and ksqlDB Applications.  Below is an example of the metrics dashboard once you have data flowing through Kafka. 
 
 <div align="center" padding=25px>
-    <img src="images/cluster-metrics.png" width=50% height=50%>
+    <img src="images/cluster-metrics.png" width=75% height=75%>
 </div>
 
 2. Click on **Cluster Settings**. This is where you can find your *Cluster ID, Bootstrap Server, Cloud Details, Cluster Type,* and *Capacity Limits*.
@@ -231,7 +231,9 @@ The next step is to produce sample data using the Datagen Source connector. We w
 
 9. We can view the sample data flowing into our topics in real time. Mavigate to  the **Topics** tab and then click on the **users_topic**. You can view the production and consumption throughput metrics here.
 
-![users-topic-overview](images/users-topic-overview.png)
+<div align="center">
+    <img src="images/users-topic-overview.png" width=75% height=75%>
+</div>
 
 10. Click on **Messages**. In the search bar, select **Jump to Offset** from the drop-down, set the offset to **0**, and then execute the search. 
 
@@ -242,6 +244,7 @@ The next step is to produce sample data using the Datagen Source connector. We w
 </div> 
 
 * The messages should look something like the following. 
+
 <div align="center">
     <img src="images/card-view-values.png" width=75% height=75%>
 </div>
