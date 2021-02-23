@@ -172,7 +172,7 @@ The next step is to produce sample data using the Datagen Source connector. We w
 1. First, we will create the connector that will send data to **users_topic**. From the Confluent Cloud UI, click on the **Connectors** tab on the navigation menu. Click on the **Datagen Source** icon.
 
 <div align="center" padding=25px>
-    <img src="images/connectors.png" width=50% height=50%>
+    <img src="images/connectors.png" width=75% height=75%>
 </div>
 
 2. Enter the following configuration details. The remaining fields can be left blank.
@@ -222,7 +222,7 @@ The next step is to produce sample data using the Datagen Source connector. We w
 
 7. Review the output again and then select **Launch**.
 
-> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/running-connectors.png" width=50% height=50%></div>
+> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/running-connectors.png" width=75% height=75%></div>
 
 > **Note:** If the connectors fails, there are a few different ways to troubleshoot the error:
 > - Click on the *Connector Name*. You will see a play and pause button on this page. Click on the play button.
@@ -233,7 +233,18 @@ The next step is to produce sample data using the Datagen Source connector. We w
 
 ![users-topic-overview](images/users-topic-overview.png)
 
-10. Click on **Messages**. In the search bar, select **Jump to Offset** from the drop-down, set the offset to **0**, and then execute the search. <br><br>You should now be able to see the messages within the UI. You can toggle between the table and payload views of the events by clicking the following buttons. <br> <div align="center"><img src="images/card-view.png"></div> The messages should look something like this: <br> <div align="center"><img src="images/card-view-values.png" width=50% height=50%></div>
+10. Click on **Messages**. In the search bar, select **Jump to Offset** from the drop-down, set the offset to **0**, and then execute the search. 
+
+* You should now be able to see the messages within the UI. You can toggle between the table and payload views of the events by clicking the following buttons. 
+
+<div align="center">
+    <img src="images/card-view.png">
+</div> 
+
+* The messages should look something like the following. 
+<div align="center">
+    <img src="images/card-view-values.png" width=75% height=75%>
+</div>
 
 ***
 
@@ -286,7 +297,7 @@ SELECT * FROM STOCKS_STREAM EMIT CHANGES;
 5. You should see the following data within your **STOCKS_STREAM** stream.
 
 <div align="center">
-    <img src="images/stocks-stream-select-results.png" width=50% height=50%>
+    <img src="images/stocks-stream-select-results.png" width=75% height=75%>
 </div>
 
 6. Click **Stop**. 
@@ -302,16 +313,16 @@ CREATE TABLE users (
 WITH (KAFKA_TOPIC='users_topic', VALUE_FORMAT='JSON');
 ```
 
-8. Once you have created the **USERS** table, let’s repeat what we did above with **STOCKS_STREAMS** and query our **USERS** table. This time, select the **Tables** tab and then select the **USERS** table. You can also set the `auto.offset.reset=earliest`. <br><br> Like above, if you prefer to construct the statement on your own, make sure it looks like the following. 
+8. Once you have created the **USERS** table, let’s repeat what we did above with **STOCKS_STREAMS** and query our **USERS** table. This time, select the **Tables** tab and then select the **USERS** table. You can also set the `auto.offset.reset=earliest`. Like above, if you prefer to construct the statement on your own, make sure it looks like the following. 
 
 ```sql
 SELECT * FROM USERS EMIT CHANGES;
 ```
 
- - You should see the following data in the messages output.
+ * You should see the following data in the messages output.
 
 <div align="center">
-    <img src="images/users-table-select-results.png" width=50% height=50%>
+    <img src="images/users-table-select-results.png" width=75% height=75%>
 </div>
 
 > **Note:** Note: If the output does not show up immediately, you may have done everything correctly and it just needs a moment. Setting `auto.offset.reset=earliest` also helps output data faster since the messages are already in the topics.
@@ -350,7 +361,7 @@ SELECT * FROM STOCKS_ENRICHED EMIT CHANGES;
 * The output from the select statement should be similar to the following: <br> 
 
 <div align="center">
-    <img src="images/stocks-enriched-select-results.png" width=50% height=50%>
+    <img src="images/stocks-enriched-select-results.png" width=75% height=75%>
 </div> 
 
 > **Note:** that we have a stream of records from the left join of our **USERS** table and **STOCKS_STREAM** stream we can view the relationship between user and trades in real-time.
@@ -358,13 +369,13 @@ SELECT * FROM STOCKS_ENRICHED EMIT CHANGES;
 4. Next, let’s take a look at the topic created when we created the persistent query with the left join. Navigate to the **Topics** tab on the left hand menu and then select the topic prefixed with a unique ID followed by **STOCKS_ENRICHED**. It should resemble **pksqlc-xxxxxSTOCKS_ENRICHED**. Note this topic name as we will need it in a later step.
 
 <div align="center">
-    <img src="images/stocks-enriched-topic.png" width=50% height=50%>
+    <img src="images/stocks-enriched-topic.png" width=75% height=75%>
 </div>
 
 5. Navigate to **Consumers** on the left hand menu and find the group that corresponds with your **STOCKS_ENRICHED** stream. See the screenshot below as an example. This view shows how well your persistent query is keeping up with the incoming data. You can monitor the consumer lag, current and end offsets, and which topics it is consuming from.
 
 <div align="center">
-    <img src="images/ksql-consumer.png" width=50% height=50%>
+    <img src="images/ksql-consumer.png" width=75% height=75%>
 </div>
 
 ***
@@ -393,7 +404,7 @@ SELECT * FROM NUMBER_OF_TIMES_STOCK_BOUGHT EMIT CHANGES;
 * The results should look something like the following.
 
 <div align="center">
-    <img src="images/times-bought-select-results.png" width=50% height=50%>
+    <img src="images/times-bought-select-results.png" width=75% height=75%>
 </div>
 
 3. Next, let’s create a table that calculates the total number of stocks purchased per symbol. You can choose to set `auto.offset.reset=earliest`.
@@ -409,7 +420,7 @@ CREATE TABLE total_stock_purchased AS
 * Running this query should return something that looks similar to the following.
 
 <div align="center">
-    <img src="images/total-bought-select-results.png" width=50% height=50%>
+    <img src="images/total-bought-select-results.png" width=75% height=75%>
 </div>
 
 ***
@@ -443,7 +454,7 @@ SELECT * FROM STOCKS_PURCHASED_TODAY EMIT CHANGES;
 * The output should be similar to the following.
 
 <div align="center">
-    <img src="images/today-bought-select-results.png" width=50% height=50%>
+    <img src="images/today-bought-select-results.png" width=75% height=75%>
 </div>
 
 3. Going along with the theme of fraud detection, let’s now create a table named **accounts_to_monitor** with accounts we want to monitor based on their activity during a given time frame. In the ksqlDB **Editor**, paste the following statement and run the query.
@@ -471,7 +482,7 @@ SELECT * FROM ACCOUNTS_TO_MONITOR EMIT CHANGES;
 * The output from this query should look like the following. 
 
 <div align="center">
-    <img src="images/accounts-to-monitor-select-results.png" width=50% height=50%>
+    <img src="images/accounts-to-monitor-select-results.png" width=75% height=75%>
 </div>
 
 ***
@@ -503,7 +514,7 @@ SELECT * FROM ACCOUNTS_MASKING EMIT CHANGES
 * The output should be similar to the following. 
 
 <div align="center">
-    <img src="images/accounts-masking-select-results.png" width=50% height=50%>
+    <img src="images/accounts-masking-select-results.png" width=75% height=75%>
 </div>
 
 ***
@@ -515,13 +526,13 @@ Deleting the resources you created during this workshop will prevent you from in
 1. The first item we should delete is our ksqlDB application. Select the **Delete** button under **Actions** and enter the **Application Name** to confirm the deletion. 
 
 <div align="center">
-    <img src="images/delete-ksqldb.png" width=50% height=50%>
+    <img src="images/delete-ksqldb.png" width=75% height=75%>
 </div>
 
 2. Next, we can delete the Datagen Source connectors for **users** and **stocks**. Navigate to the **Connectors** tab and select each connector. In the top right corner, you will see a **trash** icon. Click the icon and enter the **Connector Name**. Delete both the **users** and **stocks** connectors. 
 
 <div align="center">
-    <img src="images/delete-connectors.png" width=50% height=50%>
+    <img src="images/delete-connectors.png" width=75% height=75%>
 </div>
 
 3. Finally, under **Cluster Settings** we can select the **Delete Cluster** button at the bottom. Enter the **Cluster Name** and select **Confirm**. 
