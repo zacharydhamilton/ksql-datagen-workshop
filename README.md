@@ -131,7 +131,7 @@ An environment contains Kafka clusters and its deployed components such as Conne
 4. Enter **users_topic** as the topic name, **1** as the number of partitions, and then click **Create with defaults**. 
 
 <div align="center" padding=25px>
-    <img src="images/create-topic.png" width=75% height=75%>
+    <img src="images/create-topic.png" width=50% height=50%>
 </div>
 
 5. Repeat the previous step and create a second topic name **stocks_topic** and **1** as the number of partitions. 
