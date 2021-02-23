@@ -93,14 +93,14 @@ An environment contains Kafka clusters and its deployed components such as Conne
 5. Choose your preferred Cloud Provider (AWS, GCP, or Azure), region, and availability zone. 
 6. Specify a **Cluster Name**. For the purpose of this lab, any name will work here. 
 
-![create-cluster](images/create-cluster.png)
+<div align="center" padding=25px>
+    <img src="images/create-cluster.png" width=50% height=50%>
+</div>
 
 7. View the associated *Configuration & Cost*, *Usage Limits*, and *Uptime SLA* information before launching. 
 8. Click **Launch Cluster**. 
 
-<br></br>
 ***
-<br></br>
 
 ## <a name="step-3"></a>Create a ksqlDB Application
 
@@ -110,11 +110,11 @@ An environment contains Kafka clusters and its deployed components such as Conne
 
 > **Note:** A streaming unit, also known as a Confluent Streaming Unit (CSU), is the unit of pricing for Confluent Cloud ksqlDB. A CSU is an abstract unit that represents the linearity of performance.
 
-![new-application](images/new-application.png)
+<div align="center" padding=25px>
+    <img src="images/create-application.png" width=50% height=50%>
+</div>
 
-<br></br>
 ***
-<br></br>
 
 ## <a name="step-4"></a>Creates Topic and Walk Through Cloud Dashboard
 
@@ -122,13 +122,17 @@ An environment contains Kafka clusters and its deployed components such as Conne
 
 > **Note:** This section shows Cluster Metrics, such as Throughput and Storage. This page also shows the number of Topics, Partitions, Connectors, and ksqlDB Applications.  Below is an example of the metrics dashboard once you have data flowing through Kafka. 
 
-![cluster-metrics](images/cluster-metrics.png)
+<div align="center" padding=25px>
+    <img src="images/cluster-metrics.png" width=50% height=50%>
+</div>
 
 2. Click on **Cluster Settings**. This is where you can find your *Cluster ID, Bootstrap Server, Cloud Details, Cluster Type,* and *Capacity Limits*.
 3. On the same navigation menu, select **Topics** and click **Create Topic**. 
 4. Enter **users_topic** as the topic name, **1** as the number of partitions, and then click **Create with defaults**. 
 
-![create-topic](images/create-topic.png)
+<div align="center" padding=25px>
+    <img src="images/create-topic.png" width=50% height=50%>
+</div>
 
 5. Repeat the previous step and create a second topic name **stocks_topic** and **1** as the number of partitions. 
 
@@ -137,18 +141,20 @@ An environment contains Kafka clusters and its deployed components such as Conne
 6. After topic creation, the **Topics UI** allows you to monitor production and consumption throughput metrics and the configuration parameters for your topics. When we begin sending messages to Confluent Cloud, you will be able to view those messages and message schemas.
 7. Below is a look at our topic, **users_topic**, but we need to send data to this topic before we see any metrics.
 
-![users-topic](images/users-topic.png)
+<div align="center" padding=25px>
+    <img src="images/users-topic.png" width=50% height=50%>
+</div>
 
-<br></br>
 ***
-<br></br>
 
 ## <a name="step-5"></a>Create an API Key Pair
 
 1. Select **API Access** on the mavigation menu. 
 2. A key pair has already been created for the ksqlDB application we created in *Step 3*. Select **+ Add Key** to create another key pair. 
 
-![create-key](images/create-key.png)
+<div align="center" padding=25px>
+    <img src="images/create-key.png" width=50% height=50%>
+</div>
 
 3. Select **Global Access** and then click **Next**. 
 4. Copy or save your API Key and Secret somewhere. We will need these later on in the lab. 
@@ -157,9 +163,7 @@ An environment contains Kafka clusters and its deployed components such as Conne
 
 5. After creating and saving the API key, you will see this API key in the Confluent Cloud UI in the **API Access** tab. If you don’t see the API key populate right away, refresh the browser.
 
-<br></br>
 ***
-<br></br> 
 
 ## <a name="step-6"></a>Create Datagen Connectors for Users and Stocks
 
@@ -167,9 +171,13 @@ The next step is to produce sample data using the Datagen Source connector. We w
 
 1. First, we will create the connector that will send data to **users_topic**. From the Confluent Cloud UI, click on the **Connectors** tab on the navigation menu. Click on the **Datagen Source** icon.
 
-![connectors](images/connectors.png)
+<div align="center" padding=25px>
+    <img src="images/connectors.png" width=50% height=50%>
+</div>
 
 2. Enter the following configuration details. The remaining fields can be left blank.
+
+<div align="center">
 
 | setting                            | value                        |
 |------------------------------------|------------------------------|
@@ -181,17 +189,22 @@ The next step is to produce sample data using the Datagen Source connector. We w
 | quickstart                         | USERS                        |
 | max interval between messages (ms) | 1000                         |
 | tasks                              | 1                            |
+</div>
 
 <br>
 
 3. Click on **Next**.
 4. Before launching the connector, you should see something similar to the following. If everything looks similar, select **Launch**. 
 
-![add-datagen-conn](images/add-datagen-conn.png)
+<div align="center" padding=25px>
+    <img src="images/add-datagen-conn.png" width=50% height=50%>
+</div>
 
 5. Next, we will create the second connector that will send data to **stocks_topic**. Click on **+ Add Connector** and then the **datagen Source** icon again. 
 
 6. Enter the following configuration details. The remaining fields can be left blank. 
+
+<div align="center">
 
 | setting                            | value                        |
 |------------------------------------|------------------------------|
@@ -203,13 +216,13 @@ The next step is to produce sample data using the Datagen Source connector. We w
 | quickstart                         | STOCKS                       |
 | max interval between messages (ms) | 1000                         |
 | tasks                              | 1                            |
+</div>
 
 <br> 
 
 7. Review the output again and then select **Launch**.
 
-> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. 
-> ![running-connectors](images/running-connectors.png)
+> **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/running-connectors.png" width=50% height=50%></div>
 
 > **Note:** If the connectors fails, there are a few different ways to troubleshoot the error:
 > - Click on the *Connector Name*. You will see a play and pause button on this page. Click on the play button.
@@ -220,12 +233,9 @@ The next step is to produce sample data using the Datagen Source connector. We w
 
 ![users-topic-overview](images/users-topic-overview.png)
 
-10. Click on **Messages**. In the search bar, select **Jump to Offset** from the drop-down, set the offset to **0**, and then execute the search. 
-11. You should now be able to see the messages within the UI. Click on the *Card View* to see the messages in a different format. <br> ![card-view](images/card-view.png) <br> The messages should look something like this: <br> ![card-view-values](images/card-view-values.png)
+10. Click on **Messages**. In the search bar, select **Jump to Offset** from the drop-down, set the offset to **0**, and then execute the search. <br><br>You should now be able to see the messages within the UI. You can toggle between the table and payload views of the events by clicking the following buttons. <br> <div align="center"><img src="images/card-view.png"></div> The messages should look something like this: <br> <div align="center"><img src="images/card-view-values.png" width=50% height=50%></div>
 
-<br></br>
 ***
-<br></br>
 
 ## <a name="step-7"></a>Create a Stream and a Table
 
@@ -263,15 +273,21 @@ WITH (kafka_topic='stocks_topic', value_format='JSON');
 
 3. Next, go to the **Streams** tab at the topic and clock on **STOCKS_STREAM**. This provides information on the stream, topic (including replication, partitions, and key and value serialization), and schemas.
 
-![stream-detail](images/stream-detail.png)
+<div align="center">
+    <img src="images/stream-detail.png" width=50% height=50%>
+</div>
 
-4. Click on **Query Stream** which will take you back to the **Editor**. You will see the following query auto-populated in the editor which may be already running by default. If not, click on **Run query**. An option is to set the `auto.offset.reset=earliest` before clicking **Run query**.
+4. Click on **Query Stream** which will take you back to the **Editor**. You will see the following query auto-populated in the editor which may be already running by default. If not, click on **Run query**. An option is to set the `auto.offset.reset=earliest` before clicking **Run query**. <br> <br> Optionally, you can navigate to the editor and construct the select statement on your own, which should look like the following.
 
-![stocks-stream-select](images/stocks-streams-select.png)
+```sql
+SELECT * FROM STOCKS_STREAM EMIT CHANGES;
+```
 
 5. You should see the following data within your **STOCKS_STREAM** stream.
 
-![stocks-stream-select-results](images/stock-stream-select-results.png)
+<div align="center">
+    <img src="images/stocks-stream-select-results.png" width=50% height=50%>
+</div>
 
 6. Click **Stop**. 
 7. Next, let's create a **Table** by registering the **users_topic** as a table named **users**. Copy the following code into the **Editor** and click **Run**. 
@@ -286,21 +302,23 @@ CREATE TABLE users (
 WITH (KAFKA_TOPIC='users_topic', VALUE_FORMAT='JSON');
 ```
 
-8. Once you have created the **USERS** table, let’s repeat what we did above with **STOCKS_STREAMS** and query our **USERS** table. This time, select the **Tables** tab and then select the **USERS** table. You can also set the `auto.offset.reset=earliest`.
+8. Once you have created the **USERS** table, let’s repeat what we did above with **STOCKS_STREAMS** and query our **USERS** table. This time, select the **Tables** tab and then select the **USERS** table. You can also set the `auto.offset.reset=earliest`. <br><br> Like above, if you prefer to construct the statement on your own, make sure it looks like the following. 
 
-![user-table-select](images/users-table-select.png)
+```sql
+SELECT * FROM USERS EMIT CHANGES;
+```
 
-9. You should see the following data in the messages output.
+ - You should see the following data in the messages output.
 
-![users-table-select-results](images/users-table-select-results.png)
+<div align="center">
+    <img src="images/users-table-select-results.png" width=50% height=50%>
+</div>
 
 > **Note:** Note: If the output does not show up immediately, you may have done everything correctly and it just needs a moment. Setting `auto.offset.reset=earliest` also helps output data faster since the messages are already in the topics.
 
-10. Stop the query by clicking **Stop**. 
+9. Stop the query by clicking **Stop**. 
 
-<br></br>
 ***
-<br></br>
 
 ## <a name="step-10"></a>Create a Persistent Query
 
@@ -324,15 +342,32 @@ CREATE STREAM stocks_enriched AS
 EMIT CHANGES;
 ```
 
-2. Using the **Editor**, query the new stream. You can either type in a select statement or you can navigate to the stream and select the query button, similar to how we did it in a previous step. You can also choose to set `auto.offset.reset=earliest`. <br>![stocks-enriched-select](images/stocks-enriched-select.png)<br>The output from the select statement should be similar to the following: <br>![stocks-enriched-select-results](images/stocks-enriched-select-results.png)<br>Note that we have a stream of records from the left join of our **USERS** table and **STOCKS_STREAM** stream we can view the relationship between user and trades in real-time.
+2. Using the **Editor**, query the new stream. You can either type in a select statement or you can navigate to the stream and select the query button, similar to how we did it in a previous step. You can also choose to set `auto.offset.reset=earliest`. Your statement should be the following. 
 
-4. Next, let’s take a look at the topic created when we created the persistent query with the left join. Navigate to the **Topics** tab on the left hand menu and then select the topic prefixed with a unique ID followed by **STOCKS_ENRICHED**. It should resemble **pksqlc-xxxxxSTOCKS_ENRICHED**. Note this topic name as we will need it in a later step.<br>![stocks-enriched-topic](images/stocks-enriched-topic)
+```sql
+SELECT * FROM STOCKS_ENRICHED EMIT CHANGES;
+```
+* The output from the select statement should be similar to the following: <br> 
 
-5. Navigate to **Consumers** on the left hand menu and find the group that corresponds with your **STOCKS_ENRICHED** stream. See the screenshot below as an example. This view shows how well your persistent query is keeping up with the incoming data. You can monitor the consumer lag, current and end offsets, and which topics it is consuming from.<br>![ksql-consumer](images/ksql-consumers.png)
+<div align="center">
+    <img src="images/stocks-enriched-select-results.png" width=50% height=50%>
+</div> 
 
-<br></br>
+> **Note:** that we have a stream of records from the left join of our **USERS** table and **STOCKS_STREAM** stream we can view the relationship between user and trades in real-time.
+
+4. Next, let’s take a look at the topic created when we created the persistent query with the left join. Navigate to the **Topics** tab on the left hand menu and then select the topic prefixed with a unique ID followed by **STOCKS_ENRICHED**. It should resemble **pksqlc-xxxxxSTOCKS_ENRICHED**. Note this topic name as we will need it in a later step.
+
+<div align="center">
+    <img src="images/stocks-enriched-topic.png" width=50% height=50%>
+</div>
+
+5. Navigate to **Consumers** on the left hand menu and find the group that corresponds with your **STOCKS_ENRICHED** stream. See the screenshot below as an example. This view shows how well your persistent query is keeping up with the incoming data. You can monitor the consumer lag, current and end offsets, and which topics it is consuming from.
+
+<div align="center">
+    <img src="images/ksql-consumer.png" width=50% height=50%>
+</div>
+
 ***
-<br></br>
 
 ## <a name="step-9"></a>Aggregate Data
 
@@ -349,9 +384,20 @@ CREATE TABLE number_of_times_stock_bought AS
     GROUP BY SYMBOL
 EMIT CHANGES;
 ```
-2. Next, query this table by going to the **Tables** tab and selecting the query option or typing it directly into the **Editor**. You can also choose to set `auto.offset.reset=earliest`.<br>![stocks-bought-select](images/stocks-bought-select.png)
+2. Next, query this table by going to the **Tables** tab and selecting the query option or typing it directly into the **Editor**. You can also choose to set `auto.offset.reset=earliest`. If you write the statement yourself, make sure it looks like the following.
 
-3. Next, let’s create a table that calculates the total number of stocks purchased per symbol. You can choose to set `auto.offset.reset=earliest`.<br>
+```sql
+SELECT * FROM NUMBER_OF_TIMES_STOCK_BOUGHT EMIT CHANGES; 
+```
+
+* The results should look something like the following.
+
+<div align="center">
+    <img src="images/times-bought-select-results.png" width=50% height=50%>
+</div>
+
+3. Next, let’s create a table that calculates the total number of stocks purchased per symbol. You can choose to set `auto.offset.reset=earliest`.
+
 ```sql
 CREATE TABLE total_stock_purchased AS
     SELECT symbol,
@@ -360,13 +406,13 @@ CREATE TABLE total_stock_purchased AS
 	WHERE SIDE = 'BUY'
     GROUP BY SYMBOL;
 ```
-Running this query should return something that looks similar to the following.
+* Running this query should return something that looks similar to the following.
 
-![stocks-total-purchased](images/stocks-total-purchased.png)
+<div align="center">
+    <img src="images/total-bought-select-results.png" width=50% height=50%>
+</div>
 
-<br></br>
 ***
-<br></br>
 
 ## <a name="step-10"></a> Windowing Operations and Fraud Detection
 
@@ -374,7 +420,7 @@ We will walk through a few examples on how to use ksqlDB for Windowing, includin
 
 There are a few different Windowing operations you can use with ksqlDB. You can learn more about them [here](https://docs.ksqldb.io/en/latest/concepts/time-and-windows-in-ksqldb-queries/#window-types).
 
-1. In the ksqlDB **Editor**, paste the following command in order to create a windowed table named **stocks_purchased_today** from the stocks_topic. You can set the size of the window to any duration. We will set it to 5 minutes in this example.
+1. In the ksqlDB **Editor**, paste the following command in order to create a windowed table named **stocks_purchased_today** from the **stocks_topic**. You can set the size of the window to any duration. We will set it to 5 minutes in this example.
 
 ```sql
 CREATE TABLE stocks_purchased_today
@@ -388,7 +434,17 @@ WITH (kafka_topic='stocks_topic') AS
     GROUP BY symbol;
 ```
 
-2. Once you have created the windowed table, use the **Editor** or the **Tables** tab to query the table. The output should be similar to the following.<br>![windowed-table-results](images/windowed-table-results.png)
+2. Once you have created the windowed table, use the **Editor** or the **Tables** tab to query the table. If you construct the statement on your own, make sure it looks like the following. 
+
+```sql
+SELECT * FROM STOCKS_PURCHASED_TODAY EMIT CHANGES;
+```
+
+* The output should be similar to the following.
+
+<div align="center">
+    <img src="images/today-bought-select-results.png" width=50% height=50%>
+</div>
 
 3. Going along with the theme of fraud detection, let’s now create a table named **accounts_to_monitor** with accounts we want to monitor based on their activity during a given time frame. In the ksqlDB **Editor**, paste the following statement and run the query.
 
@@ -406,11 +462,19 @@ WITH (kafka_topic='pksqlc-xxxxxSTOCKS_ENRICHED', partitions=1, value_format='JSO
     HAVING COUNT(*) > 3;
 ```
 
-4. Once you have created the **ACCOUNTS_TO_MONITOR** table, use either the **Editor** or the **Tables** tab to query the data from the table. The output should be similar to the following. <br>![accounts-to-monitor-results](images/accounts-to-monitor-results.png)
+4. Once you have created the **ACCOUNTS_TO_MONITOR** table, use either the **Editor** or the **Tables** tab to query the data from the table. If you construct the statement on your own, make sure it looks like the following.
 
-<br></br>
+```sql
+SELECT * FROM ACCOUNTS_TO_MONITOR EMIT CHANGES;
+```
+
+* The output from this query should look like the following. 
+
+<div align="center">
+    <img src="images/accounts-to-monitor-select-results.png" width=50% height=50%>
+</div>
+
 ***
-<br></br>
 
 ## <a name="step-11"></a>Data Masking
 
@@ -430,25 +494,43 @@ WITH (kafka_topic='masking_stocks_topic', value_format='json', partitions=1) AS
     FROM STOCKS_STREAM;
 ```
 
-2. Next, query the newly create stream using either the **Editor** or the **streams** tab. The output should be similar to the following. <br> ![accounts-masking-results](images/accounts-masking-results.png)
+2. Next, query the newly create stream using either the **Editor** or the **streams** tab. If you construct the statement on your own, make sure it looks like the following. 
 
-<br></br>
+```sql
+SELECT * FROM ACCOUNTS_MASKING EMIT CHANGES
+```
+
+* The output should be similar to the following. 
+
+<div align="center">
+    <img src="images/accounts-masking-select-results.png" width=50% height=50%>
+</div>
+
 ***
-<br></br>
 
 ## <a name="step-12"></a>Clean Up Resources
 
 Deleting the resources you created during this workshop will prevent you from incurring additional charges.
 
-1. The first item we should delete is our ksqlDB application. Select the **Delete** button under **Actions** and enter the **Application Name** to confirm the deletion. <br> ![delete-ksqldb](images/delete-ksqldb.png)
+1. The first item we should delete is our ksqlDB application. Select the **Delete** button under **Actions** and enter the **Application Name** to confirm the deletion. 
 
-2. Next, we can delete the Datagen Source connectors for **users** and **stocks**. Navigate to the **Connectors** tab and select each connector. In the top right corner, you will see a **trash** icon. Click the icon and enter the **Connector Name**. Delete both the **users** and **stocks** connectors. <br> ![delete-connector](images/delete-connector.png)
+<div align="center">
+    <img src="images/delete-ksqldb.png" width=50% height=50%>
+</div>
+
+2. Next, we can delete the Datagen Source connectors for **users** and **stocks**. Navigate to the **Connectors** tab and select each connector. In the top right corner, you will see a **trash** icon. Click the icon and enter the **Connector Name**. Delete both the **users** and **stocks** connectors. 
+
+<div align="center">
+    <img src="images/delete-connectors.png" width=50% height=50%>
+</div>
 
 3. Finally, under **Cluster Settings** we can select the **Delete Cluster** button at the bottom. Enter the **Cluster Name** and select **Confirm**. 
 
-<br></br>
-***
-<br></br> 
+<div align="center">
+    <img src="images/delete-cluster.png" width=50% height=50%>
+</div>
+
+*** 
 
 ## <a name="step-13"></a>Confluent Resources and Further Testing
 
@@ -458,3 +540,5 @@ Here are some links to check out if your interested in further testing:
 - [Streams and Tables in Apache Kafka: A Primer](https://www.confluent.io/blog/kafka-streams-tables-part-1-event-streaming/)
 - [Confluent Cloud Documentation](https://docs.confluent.io/cloud/current/overview.html)
 - [Best Practices for Developing Apache Kafka Applications on Confluent Cloud](https://assets.confluent.io/m/14397e757459a58d/original/20200205-WP-Best_Practices_for_Developing_Apache_Kafka_Applications_on_Confluent_Cloud.pdf)
+
+***
