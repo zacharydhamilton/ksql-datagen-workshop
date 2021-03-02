@@ -1,5 +1,5 @@
 <div align="center" padding=25px>
-<img src="images/confluent.png" width=50% height=50%>
+    <img src="images/confluent.png" width=50% height=50%>
 </div>
 
 # <div align="center">Enable Real-Time Data Transformations and Stream Processing with ksqlDB</div>
@@ -16,7 +16,7 @@
 7. [Create a Stream and a Table](#step-7)
 8. [Create a Persistent Query](#step-8)
 9. [Aggregate data](#step-9)
-10. [Windowign Operations and Fraud Detection](#step-10)
+10. [Windowing Operations and Fraud Detection](#step-10)
 11. [Data Masking](#step-11)
 12. [Clean Up Resources](#step-12)
 13. [Confluent Resources and Further Testing](#step-13)
@@ -149,7 +149,7 @@ An environment contains Kafka clusters and its deployed components such as Conne
 
 ## <a name="step-5"></a>Create an API Key Pair
 
-1. Select **API Access** on the mavigation menu. 
+1. Select **API Access** on the navigation menu. 
 2. A key pair has already been created for the ksqlDB application we created in *Step 3*. Select **+ Add Key** to create another key pair. 
 
 <div align="center" padding=25px>
@@ -225,11 +225,11 @@ The next step is to produce sample data using the Datagen Source connector. We w
 > **Note:** It may take a few moments for the connectors to launch. Check the status and when both are ready, the status should show *running*. <br> <div align="center"><img src="images/running-connectors.png" width=75% height=75%></div>
 
 > **Note:** If the connectors fails, there are a few different ways to troubleshoot the error:
-> - Click on the *Connector Name*. You will see a play and pause button on this page. Click on the play button.
-> - Click on the *Connector Name*, go to *Settings*, and re-enter your API key and secret. Double check there are no extra spaces at the beginning or end of the key and secret that you may have accidentally copied and pasted.
-> - If neither of these steps work, try creating another Datagen connector.
+> * Click on the *Connector Name*. You will see a play and pause button on this page. Click on the play button.
+> * Click on the *Connector Name*, go to *Settings*, and re-enter your API key and secret. Double check there are no extra spaces at the beginning or end of the key and secret that you may have accidentally copied and pasted.
+> * If neither of these steps work, try creating another Datagen connector.
 
-9. We can view the sample data flowing into our topics in real time. Mavigate to  the **Topics** tab and then click on the **users_topic**. You can view the production and consumption throughput metrics here.
+9. We can view the sample data flowing into our topics in real time. Navigate to  the **Topics** tab and then click on the **users_topic**. You can view the production and consumption throughput metrics here.
 
 <div align="center">
     <img src="images/users-topic-overview.png" width=75% height=75%>
